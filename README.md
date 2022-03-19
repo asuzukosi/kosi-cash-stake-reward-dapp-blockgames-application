@@ -8,6 +8,6 @@ https://rinkeby.etherscan.io/address/0x1bd10c3cdb0f85df0bc68729b581fa8be310d344
 
 The link to the deployed web application is
 
-
+https://stake-reward-token-web.herokuapp.com/
 
 ###########################################################################################
