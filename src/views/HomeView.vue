@@ -73,7 +73,7 @@ export default {
     async getAllAccountInfo(){
       console.log("getting all account information...")
       this.dataAvailable = false
-      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0xEff33Efb13C5503cE8ed7EF692Ce4ec1221e4866')
+      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0x1bd10C3CDb0f85Df0bc68729b581Fa8bE310D344')
       this.totalBalance = await stakeRewardTokenContract.methods.balanceOf(this.account).call() / (10**18)
       this.totalStake = await stakeRewardTokenContract.methods.stakeOf(this.account).call() / (10**18)
       this.totalReward = await stakeRewardTokenContract.methods.rewardOf(this.account).call() / (10**18)
@@ -85,7 +85,7 @@ export default {
       this.whatsHappening = "buying Kosi cash token of amount " + amount_in_kch
     
       let kshs_in_wei = (amount_in_kch/1000) * (10 ** 18) // the value of the requested amount of Kosi cash token is wei
-      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0xEff33Efb13C5503cE8ed7EF692Ce4ec1221e4866')
+      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0x1bd10C3CDb0f85Df0bc68729b581Fa8bE310D344')
       try {
           await stakeRewardTokenContract.methods.buyToken().send({"from": this.account, "value": kshs_in_wei})
           this.whatsHappening = ''
@@ -114,7 +114,7 @@ export default {
       this.whatsHappening = "Transfering "+amount+"  amount of KosiCash to "+receiver
 
       let kshs = amount* (10 ** 18) // the value of the requested amount of Kosi cash token is wei
-      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0xEff33Efb13C5503cE8ed7EF692Ce4ec1221e4866')
+      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0x1bd10C3CDb0f85Df0bc68729b581Fa8bE310D344')
       try {
           await stakeRewardTokenContract.methods.transfer(receiver, BigInt(kshs)).send({"from": this.account})
           this.whatsHappening = ''
@@ -143,7 +143,7 @@ export default {
       this.whatsHappening = "Staking "+amount + " amount of tokens"
 
       let kshs = amount*(10**18) // the value of the requested amount of Kosi cash token is wei
-      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0xEff33Efb13C5503cE8ed7EF692Ce4ec1221e4866')
+      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0x1bd10C3CDb0f85Df0bc68729b581Fa8bE310D344')
 
       try {
           await stakeRewardTokenContract.methods.createStake(BigInt(kshs)).send({"from": this.account})
@@ -172,7 +172,7 @@ export default {
        console.log("Cashing out rewards from staked tokens")
        this.whatsHappening = "Cashing out rewards from staked tokens"
    
-       let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0xEff33Efb13C5503cE8ed7EF692Ce4ec1221e4866')
+       let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0x1bd10C3CDb0f85Df0bc68729b581Fa8bE310D344')
        
        try {
           await stakeRewardTokenContract.methods.withdrawReward().send({"from": this.account})
@@ -202,7 +202,7 @@ export default {
       this.whatsHappening = "Removing "+amount + " amount of tokens from stake"
 
       let kshs = amount* (10 ** 18) // the value of the requested amount of Kosi cash token is wei
-      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0xEff33Efb13C5503cE8ed7EF692Ce4ec1221e4866')
+      let stakeRewardTokenContract = new this.web3.eth.Contract(this.contractAbi, '0x1bd10C3CDb0f85Df0bc68729b581Fa8bE310D344')
 
       try {
           await stakeRewardTokenContract.methods.removeStake(BigInt(kshs)).send({"from": this.account})
